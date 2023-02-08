@@ -11,7 +11,7 @@ interface Comic {
 }
 
 export const List = ({ comics }: Props) => (
-  <ScrollView>
+  <ScrollView style={styles.scrollView}>
     {comics.map(comic => (
       <View key={comic.id} style={styles.container}>
         <Text style={styles.title}>{comic.title}</Text>
@@ -28,5 +28,8 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: 'bold',
     marginBottom: 5
+  },
+  scrollView: {
+    marginBottom: 20
   }
 })

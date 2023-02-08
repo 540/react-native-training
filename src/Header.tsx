@@ -1,28 +1,41 @@
 import { Button, Platform, StyleSheet, Text, View } from 'react-native'
 import RNPickerSelect from 'react-native-picker-select'
+import { Character } from '../api'
 
-export const Header = () => (
+interface Props {
+  characters: Character[]
+  firstCharacterFilter?: string
+  secondCharacterFilter?: string
+  onChangeFirstCharacter: (value: string) => void
+  onChangeSecondCharacter: (value: string) => void
+  onClear: () => void
+}
+
+export const Header = ({
+  characters,
+  firstCharacterFilter,
+  secondCharacterFilter,
+  onChangeFirstCharacter,
+  onChangeSecondCharacter,
+  onClear
+}: Props) => (
   <View style={styles.controlsContainer}>
     <Text style={styles.label}>Selecciona una pareja de personajes:</Text>
     <RNPickerSelect
       placeholder={{ label: 'Selecciona un personaje...' }}
       style={{ viewContainer: styles.textInput }}
-      onValueChange={() => {}}
-      items={[
-        { label: 'Option 1', value: 'option1' },
-        { label: 'Option 2', value: 'option2' }
-      ]}
+      onValueChange={onChangeFirstCharacter}
+      value={firstCharacterFilter ?? ''}
+      items={characters.map(character => ({ label: character.name, value: character.id }))}
     />
     <RNPickerSelect
       placeholder={{ label: 'Selecciona un personaje...' }}
       style={{ viewContainer: styles.textInput }}
-      onValueChange={() => {}}
-      items={[
-        { label: 'Option 1', value: 'option1' },
-        { label: 'Option 2', value: 'option2' }
-      ]}
+      onValueChange={onChangeSecondCharacter}
+      value={secondCharacterFilter ?? ''}
+      items={characters.map(character => ({ label: character.name, value: character.id }))}
     />
-    <Button title="Limpiar" />
+    <Button title="Limpiar" onPress={onClear} />
   </View>
 )
 
