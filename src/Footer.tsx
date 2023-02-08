@@ -1,9 +1,7 @@
-import {Text} from "react-native"
+import { Text } from 'react-native'
 
 interface Props {
   comicCount: number
 }
 
-export const Footer = ({comicCount}: Props) => (
-  <Text>Elementos en la lista: {comicCount}</Text>
-)
+export const Footer = ({ comicCount }: Props) => <Text>Elementos en la lista: {comicCount}</Text>

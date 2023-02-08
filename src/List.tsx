@@ -1,4 +1,4 @@
-import {ScrollView, StyleSheet, Text, View} from "react-native"
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
 
 interface Props {
   comics: Comic[]
@@ -10,13 +10,11 @@ interface Comic {
   characters: string[]
 }
 
-export const List = ({comics}: Props) => (
+export const List = ({ comics }: Props) => (
   <ScrollView>
     {comics.map(comic => (
       <View key={comic.id} style={styles.container}>
-        <Text style={styles.title}>
-          {comic.title}
-        </Text>
+        <Text style={styles.title}>{comic.title}</Text>
         <Text>{comic.characters.join(', ')}</Text>
       </View>
     ))}
@@ -28,7 +26,7 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   title: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 5
   }
 })

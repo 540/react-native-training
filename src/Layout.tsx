@@ -1,16 +1,11 @@
-import {ReactNode} from "react"
-import {SafeAreaView, StyleSheet} from "react-native"
+import { ReactNode } from 'react'
+import { SafeAreaView, StyleSheet } from 'react-native'
 
 interface Props {
   children: ReactNode
 }
 
-export const Layout = ({children}: Props) => (
-  <SafeAreaView style={styles.container}>
-    {children}
-  </SafeAreaView>
-)
-
+export const Layout = ({ children }: Props) => <SafeAreaView style={styles.container}>{children}</SafeAreaView>
 
 const styles = StyleSheet.create({
   container: {
