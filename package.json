@@ -19,6 +19,7 @@
     "react": "18.1.0",
     "react-native": "0.70.5",
     "react-native-picker-select": "^8.0.4",
+    "react-query": "^3.39.3",
     "typescript": "^4.6.3"
   },
   "devDependencies": {
