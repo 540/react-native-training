@@ -1,19 +1,29 @@
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Button, Platform, StyleSheet, Text, View } from 'react-native'
+import RNPickerSelect from 'react-native-picker-select'
 
-interface Props {
-  onFilter: (text: string) => void
-  onClear: () => void
-  filter: string
-}
-
-export const Header = ({ filter, onFilter, onClear }: Props) => (
-  <>
-    <Text style={styles.label}>Escribe un personaje en la lista:</Text>
-    <View style={styles.controlsContainer}>
-      <TextInput style={styles.textInput} value={filter} onChangeText={onFilter} />
-      <Button title="Limpiar" onPress={onClear} />
-    </View>
-  </>
+export const Header = () => (
+  <View style={styles.controlsContainer}>
+    <Text style={styles.label}>Selecciona una pareja de personajes:</Text>
+    <RNPickerSelect
+      placeholder={{ label: 'Selecciona un personaje...' }}
+      style={{ viewContainer: styles.textInput }}
+      onValueChange={() => {}}
+      items={[
+        { label: 'Option 1', value: 'option1' },
+        { label: 'Option 2', value: 'option2' }
+      ]}
+    />
+    <RNPickerSelect
+      placeholder={{ label: 'Selecciona un personaje...' }}
+      style={{ viewContainer: styles.textInput }}
+      onValueChange={() => {}}
+      items={[
+        { label: 'Option 1', value: 'option1' },
+        { label: 'Option 2', value: 'option2' }
+      ]}
+    />
+    <Button title="Limpiar" />
+  </View>
 )
 
 const styles = StyleSheet.create({
@@ -21,16 +31,13 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   textInput: {
-    marginRight: 10,
     borderColor: 'black',
-    flex: 1,
     borderWidth: 1,
     borderRadius: 5,
-    padding: 10
+    padding: Platform.OS === 'ios' ? 15 : 0,
+    marginBottom: 10
   },
   controlsContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
     marginBottom: 30
   }
 })

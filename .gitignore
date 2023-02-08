@@ -15,3 +15,5 @@ web-build/
 
 # IntelliJ
 .idea
+
+.jest/
