@@ -1,18 +1,25 @@
 import { ReactNode } from 'react'
-import { SafeAreaView, StyleSheet } from 'react-native'
+import { SafeAreaView, StyleSheet, View } from 'react-native'
 
 interface Props {
   children: ReactNode
 }
 
-export const Layout = ({ children }: Props) => <SafeAreaView style={styles.container}>{children}</SafeAreaView>
+export const Layout = ({ children }: Props) => (
+  <SafeAreaView style={styles.container}>
+    <View style={styles.wrapper}>{children}</View>
+  </SafeAreaView>
+)
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#fff'
+  },
+  wrapper: {
+    flex: 1,
     justifyContent: 'flex-start',
-    marginHorizontal: 10,
-    marginVertical: 30
+    paddingHorizontal: 10,
+    paddingVertical: 20
   }
 })

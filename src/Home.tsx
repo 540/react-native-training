@@ -25,7 +25,7 @@ const fetchComics = async (firstCharacterFilter: string, secondCharacterFilter: 
   return commonComics
 }
 
-export const Root = () => {
+export const Home = () => {
   const [firstCharacterFilter, setFirstCharacterFilter] = useState<string | undefined>(undefined)
   const [secondCharacterFilter, setSecondCharacterFilter] = useState<string | undefined>(undefined)
 

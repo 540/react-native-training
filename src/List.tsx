@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
 
 interface Props {
   comics: Comic[]
@@ -16,6 +16,9 @@ export const List = ({ comics }: Props) => (
       <View key={comic.id} style={styles.container}>
         <Text style={styles.title}>{comic.title}</Text>
         <Text>{comic.characters.join(', ')}</Text>
+        <Pressable onPress={() => {}}>
+          <Text style={styles.detail}>Ver detalle</Text>
+        </Pressable>
       </View>
     ))}
   </ScrollView>
@@ -30,6 +33,10 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   scrollView: {
-    marginBottom: 20
+    paddingBottom: 10
+  },
+  detail: {
+    color: '#2296F3',
+    textDecorationLine: 'underline'
   }
 })

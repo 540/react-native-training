@@ -51,6 +51,6 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   controlsContainer: {
-    marginBottom: 30
+    paddingBottom: 20
   }
 })
