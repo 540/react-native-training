@@ -1,5 +1,5 @@
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
-import { useNavigation } from './NavigationHooks'
+import { useNavigation } from '../../_navigation/hooks'
 
 interface Props {
   comics: Comic[]

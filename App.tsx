@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { localizer } from './src/localizer'
-import { StackNavigator } from './src/StackNavigator'
+import { StackNavigator } from './src/ui/_navigation/StackNavigator'
 
 const queryClient = new QueryClient()
 localizer.init()
