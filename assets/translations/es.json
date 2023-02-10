@@ -1,0 +1,22 @@
+{
+  "home": {
+    "description": "Este buscador encontrará los cómics en los que aparezcan los dos personajes que selecciones en el formulario",
+    "selector":{
+        "title": "Selecciona una pareja de personajes:",
+        "placeholder": "Selecciona un personaje..."
+        },
+    "button": {
+      "reset":"Limpiar"
+    },
+    "comic": {
+      "count": "Elementos en la lista: {{comicCount}}",
+      "detail": "Ver detalle"
+    }
+  },
+  "detail": {
+    "count": "Elementos en la lista: {{charactersCount}}",
+    "button": {
+      "back": "Volver a la lista de comics"
+    }
+  }
+}
