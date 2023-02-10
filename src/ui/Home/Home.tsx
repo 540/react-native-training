@@ -4,39 +4,29 @@ import { List } from './_components/List'
 import { Footer } from './_components/Footer'
 import { Layout } from '../_components/Layout'
 import { useState } from 'react'
-import { api } from '../../../api'
 import { useQuery } from 'react-query'
 import { ActivityIndicator, StyleSheet } from 'react-native'
-
-const fetchComics = async (firstCharacterFilter: string, secondCharacterFilter: string) => {
-  if (firstCharacterFilter === undefined || secondCharacterFilter === undefined) {
-    return []
-  }
-
-  const [firstCharacterComics, secondCharacterComics] = await Promise.all([
-    api.comics(firstCharacterFilter, 3),
-    api.comics(secondCharacterFilter, 3)
-  ])
-
-  const commonComics = firstCharacterComics.filter(comic1 =>
-    secondCharacterComics.some(comic2 => comic1.id === comic2.id)
-  )
-
-  return commonComics
-}
+import { comicUseCases as comicUseCasesFactory } from '../../core/comic/useCases/comicUseCases'
+import { characterUseCases as characterUseCasesFactory } from '../../core/character/useCases/characterUseCases'
+import { apiComicRepository } from '../../core/comic/infrastructure/apiComicRepository'
+import { apiCharacterRepository } from '../../core/character/infrastructure/apiCharacterRepository'
+import { api } from '../../core/shared/api/infrastructure/api'
 
 export const Home = () => {
   const [firstCharacterFilter, setFirstCharacterFilter] = useState<string | undefined>(undefined)
   const [secondCharacterFilter, setSecondCharacterFilter] = useState<string | undefined>(undefined)
 
-  const { data: characters } = useQuery('characters', api.characters, { initialData: [] })
+  const comicUseCases = comicUseCasesFactory(apiComicRepository(api(3)))
+  const characterUseCases = characterUseCasesFactory(apiCharacterRepository(api(3)))
+
+  const { data: characters } = useQuery('characters', characterUseCases.all, { initialData: [] })
   const {
     data: comics,
     isFetching: isFetchingComics,
     remove: clearComics
   } = useQuery(
     ['comics', firstCharacterFilter, secondCharacterFilter],
-    () => fetchComics(firstCharacterFilter, secondCharacterFilter),
+    () => comicUseCases.commonComics(firstCharacterFilter, secondCharacterFilter),
     { initialData: [] }
   )
 
