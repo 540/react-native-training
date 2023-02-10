@@ -1,7 +1,12 @@
 import { CharacterRepository } from '../domain/CharacterRepository'
-import { Api } from '../../shared/api/infrastructure/api'
+import { Api } from 'core/shared/api/infrastructure/api'
 
-export const apiCharacterRepository = (api: Api) =>
-  ({
-    all: () => api.characters()
-  } satisfies CharacterRepository)
+export class ApiCharacterRepository implements CharacterRepository {
+  private api: Api
+
+  constructor({ api }: { api: Api }) {
+    this.api = api
+  }
+
+  all = () => this.api.characters()
+}

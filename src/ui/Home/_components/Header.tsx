@@ -1,7 +1,7 @@
 import { Button, Platform, StyleSheet, Text, View } from 'react-native'
 import RNPickerSelect from 'react-native-picker-select'
 import { useTranslation } from 'react-i18next'
-import { Character } from '../../../core/character/domain/character'
+import { Character } from 'core/character/domain/character'
 
 interface Props {
   characters: Character[]

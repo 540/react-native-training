@@ -1,7 +1,7 @@
 import { Button, StyleSheet, Text, View } from 'react-native'
-import { useNavigation, useRoute } from '../_navigation/hooks'
 import { useTranslation } from 'react-i18next'
-import { Layout } from '../_components/Layout'
+import { Layout } from 'ui/_components/Layout'
+import { useNavigation, useRoute } from 'ui/_navigation'
 
 export const Detail = () => {
   const {

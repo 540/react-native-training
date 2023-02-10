@@ -2,22 +2,16 @@ import { Intro } from './_components/Intro'
 import { Header } from './_components/Header'
 import { List } from './_components/List'
 import { Footer } from './_components/Footer'
-import { Layout } from '../_components/Layout'
+import { Layout } from 'ui/_components/Layout'
 import { useState } from 'react'
 import { useQuery } from 'react-query'
 import { ActivityIndicator, StyleSheet } from 'react-native'
-import { comicUseCases as comicUseCasesFactory } from '../../core/comic/useCases/comicUseCases'
-import { characterUseCases as characterUseCasesFactory } from '../../core/character/useCases/characterUseCases'
-import { apiComicRepository } from '../../core/comic/infrastructure/apiComicRepository'
-import { apiCharacterRepository } from '../../core/character/infrastructure/apiCharacterRepository'
-import { api } from '../../core/shared/api/infrastructure/api'
+import { useContainer } from 'ui/_context/diContext'
 
 export const Home = () => {
   const [firstCharacterFilter, setFirstCharacterFilter] = useState<string | undefined>(undefined)
   const [secondCharacterFilter, setSecondCharacterFilter] = useState<string | undefined>(undefined)
-
-  const comicUseCases = comicUseCasesFactory(apiComicRepository(api(3)))
-  const characterUseCases = characterUseCasesFactory(apiCharacterRepository(api(3)))
+  const { characterUseCases, comicUseCases } = useContainer()
 
   const { data: characters } = useQuery('characters', characterUseCases.all, { initialData: [] })
   const {

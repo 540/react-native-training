@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { Detail } from '../Detail'
-import { Home } from '../Home'
-import { Comic } from '../Home/_components/List'
+import { Detail } from 'ui/Detail'
+import { Home } from 'ui/Home'
+import { NavigationParams } from 'ui/_navigation/model'
 
 const Stack = createNativeStackNavigator<NavigationParams>()
 
@@ -11,10 +11,3 @@ export const StackNavigator = () => (
     <Stack.Screen name="Detail" component={Detail} />
   </Stack.Navigator>
 )
-
-export type NavigationParams = {
-  Home: undefined
-  Detail: { comic: Comic }
-}
-
-export type RouteName = keyof NavigationParams
