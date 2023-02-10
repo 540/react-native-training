@@ -1,6 +1,7 @@
 import { Button, Platform, StyleSheet, Text, View } from 'react-native'
 import RNPickerSelect from 'react-native-picker-select'
 import { Character } from '../api'
+import { useTranslation } from 'react-i18next'
 
 interface Props {
   characters: Character[]
@@ -18,26 +19,30 @@ export const Header = ({
   onChangeFirstCharacter,
   onChangeSecondCharacter,
   onClear
-}: Props) => (
-  <View style={styles.controlsContainer}>
-    <Text style={styles.label}>Selecciona una pareja de personajes:</Text>
-    <RNPickerSelect
-      placeholder={{ label: 'Selecciona un personaje...' }}
-      style={{ viewContainer: styles.textInput }}
-      onValueChange={onChangeFirstCharacter}
-      value={firstCharacterFilter ?? ''}
-      items={characters.map(character => ({ label: character.name, value: character.id }))}
-    />
-    <RNPickerSelect
-      placeholder={{ label: 'Selecciona un personaje...' }}
-      style={{ viewContainer: styles.textInput }}
-      onValueChange={onChangeSecondCharacter}
-      value={secondCharacterFilter ?? ''}
-      items={characters.map(character => ({ label: character.name, value: character.id }))}
-    />
-    <Button title="Limpiar" onPress={onClear} />
-  </View>
-)
+}: Props) => {
+  const { t } = useTranslation()
+
+  return (
+    <View style={styles.controlsContainer}>
+      <Text style={styles.label}>{t('home.selector.title')}</Text>
+      <RNPickerSelect
+        placeholder={{ label: t('home.selector.placeholder') }}
+        style={{ viewContainer: styles.textInput }}
+        onValueChange={onChangeFirstCharacter}
+        value={firstCharacterFilter ?? ''}
+        items={characters.map(character => ({ label: character.name, value: character.id }))}
+      />
+      <RNPickerSelect
+        placeholder={{ label: t('home.selector.placeholder') }}
+        style={{ viewContainer: styles.textInput }}
+        onValueChange={onChangeSecondCharacter}
+        value={secondCharacterFilter ?? ''}
+        items={characters.map(character => ({ label: character.name, value: character.id }))}
+      />
+      <Button title={t('home.button.reset')} onPress={onClear} />
+    </View>
+  )
+}
 
 const styles = StyleSheet.create({
   label: {

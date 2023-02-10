@@ -1,5 +1,6 @@
 {
   "home": {
+    "title": "Buscador de cómics de Marvel",
     "description": "Este buscador encontrará los cómics en los que aparezcan los dos personajes que selecciones en el formulario",
     "selector":{
         "title": "Selecciona una pareja de personajes:",

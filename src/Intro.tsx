@@ -1,13 +1,16 @@
 import { StyleSheet, Text } from 'react-native'
+import { useTranslation } from 'react-i18next'
 
-export const Intro = () => (
-  <>
-    <Text style={styles.title}>Buscador de cómics de Marvel</Text>
-    <Text style={styles.description}>
-      Este buscador encontrará los cómics en los que aparezcan los dos personajes que selecciones en el formulario
-    </Text>
-  </>
-)
+export const Intro = () => {
+  const { t } = useTranslation()
+
+  return (
+    <>
+      <Text style={styles.title}>{t('home.title')}</Text>
+      <Text style={styles.description}>{t('home.description')}</Text>
+    </>
+  )
+}
 
 const styles = StyleSheet.create({
   title: {

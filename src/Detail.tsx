@@ -1,12 +1,14 @@
 import { Button, StyleSheet, Text, View } from 'react-native'
 import { Layout } from './Layout'
 import { useNavigation, useRoute } from './NavigationHooks'
+import { useTranslation } from 'react-i18next'
 
 export const Detail = () => {
   const {
     params: { comic }
   } = useRoute<'Detail'>()
   const navigation = useNavigation()
+  const { t } = useTranslation()
 
   return (
     <Layout>
@@ -17,8 +19,8 @@ export const Detail = () => {
         </Text>
       ))}
       <View style={styles.footer}>
-        <Text>Elementos en la lista: {comic.characters.length}</Text>
-        <Button title="Volver a la lista de comics" onPress={navigation.goBack} />
+        <Text>{t('detail.count', { charactersCount: comic.characters.length })}</Text>
+        <Button title={t('detail.button.back')} onPress={navigation.goBack} />
       </View>
     </Layout>
   )
