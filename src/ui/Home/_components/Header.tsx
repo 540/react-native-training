@@ -1,6 +1,6 @@
 import { Button, Platform, StyleSheet, Text, View } from 'react-native'
 import RNPickerSelect from 'react-native-picker-select'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'ui/_hooks/useTranslation'
 import { Character } from 'core/character/domain/character'
 
 interface Props {
@@ -26,6 +26,7 @@ export const Header = ({
     <View style={styles.controlsContainer}>
       <Text style={styles.label}>{t('home.selector.title')}</Text>
       <RNPickerSelect
+        touchableWrapperProps={{ testID: 'firstCharacterSelect' }}
         placeholder={{ label: t('home.selector.placeholder') }}
         style={{ viewContainer: styles.textInput }}
         onValueChange={onChangeFirstCharacter}
@@ -33,6 +34,7 @@ export const Header = ({
         items={characters.map(character => ({ label: character.name, value: character.id }))}
       />
       <RNPickerSelect
+        touchableWrapperProps={{ testID: 'secondCharacterSelect' }}
         placeholder={{ label: t('home.selector.placeholder') }}
         style={{ viewContainer: styles.textInput }}
         onValueChange={onChangeSecondCharacter}

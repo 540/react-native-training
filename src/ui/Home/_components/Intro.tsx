@@ -1,5 +1,5 @@
 import { StyleSheet, Text } from 'react-native'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'ui/_hooks/useTranslation'
 
 export const Intro = () => {
   const { t } = useTranslation()
