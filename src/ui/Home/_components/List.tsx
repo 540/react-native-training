@@ -1,4 +1,5 @@
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { useTranslation } from 'ui/_hooks/useTranslation'
 import { useNavigation } from 'ui/_navigation'
 
 interface Props {
@@ -12,6 +13,7 @@ export interface Comic {
 }
 
 export const List = ({ comics }: Props) => {
+  const { t } = useTranslation()
   const navigation = useNavigation()
 
   return (
@@ -21,7 +23,7 @@ export const List = ({ comics }: Props) => {
           <Text style={styles.title}>{comic.title}</Text>
           <Text>{comic.characters.join(', ')}</Text>
           <Pressable onPress={() => navigation.navigate('Detail', { comic })}>
-            <Text style={styles.detail}>Ver detalle</Text>
+            <Text style={styles.detail}>{t('home.comic.detail')}</Text>
           </Pressable>
         </View>
       ))}

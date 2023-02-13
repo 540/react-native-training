@@ -1,6 +1,6 @@
-import { RouteProp, useNavigation as useNativeNavigation, useRoute as useNativeRoute } from '@react-navigation/native'
-import { NativeStackNavigationProp } from '@react-navigation/native-stack'
-import { NavigationParams, RouteName } from './model'
+import { RouteName } from './model'
+import { useContainer } from 'ui/_context/diContext'
 
-export const useNavigation = () => useNativeNavigation<NativeStackNavigationProp<NavigationParams>>()
-export const useRoute = <T extends RouteName>() => useNativeRoute<RouteProp<NavigationParams, T>>()
+export const useNavigation = () => useContainer().useNavigation()
+
+export const useRoute = <T extends RouteName>() => useContainer().useRoute<T>()

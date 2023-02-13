@@ -34,7 +34,10 @@ const wrapper =
       </DiProvider>
     )
 
-const testTranslate = (key, options = {}) =>
-  `t-${key}#${Object.keys(options)
+const testTranslate = (key, options = {}) => {
+  const optionsText = Object.keys(options)
     .map((objectKey: string) => `${objectKey}:${options[objectKey]}`)
-    .join(',')}`
+    .join(',')
+
+  return `t-${key}${optionsText !== '' ? `#${optionsText}` : ''}`
+}
