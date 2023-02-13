@@ -1,5 +1,5 @@
 import { Text } from 'react-native'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'ui/_hooks/useTranslation'
 
 interface Props {
   comicCount: number

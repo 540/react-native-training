@@ -6,12 +6,9 @@ module.exports = {
   preset: 'jest-expo',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
   moduleNameMapper: {
-    '^@(.*)/(.*)$': '<rootDir>/node_modules/@$1/$2',
+    '^_di/(.*)$': '<rootDir>/src/_di/$1',
     '^core/(.*)$': '<rootDir>/src/core/$1',
-    '^ui/(.*)$': '<rootDir>/src/ui/$1',
-    // Warning: You called act(async () => ...) without await: https://github.com/callstack/react-native-testing-library/issues/379#issuecomment-1131836137
-    '^asap$': '<rootDir>/src/core/__tests__/asap.js',
-    '^asap/raw$': '<rootDir>/src/core/__tests__/asap.js'
+    '^ui/(.*)$': '<rootDir>/src/ui/$1'
   },
   transformIgnorePatterns: [
     'node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg|@gorhom/bottom-sheet|toggle-switch-react-native|@sentry/.*|sentry-expo)'

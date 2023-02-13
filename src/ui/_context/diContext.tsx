@@ -1,16 +1,15 @@
 import { Container } from '_di/types'
 import { createContext, ReactNode, useContext, useRef } from 'react'
-import { registerEmptyModules } from '_di/registerModules'
 import { container } from '_di/container'
 
-const emptyContainer = registerEmptyModules()
+const emptyContainer = container.register({})
 
 export const DiContext = createContext<Container>(emptyContainer.cradle)
 
-export const DiProvider = (props: { children: ReactNode; container: Container }) => {
-  const containerRef = useRef(container.cradle)
+export const DiProvider = ({ children, container }: { children: ReactNode; container: Container }) => {
+  const containerRef = useRef(container)
 
-  return <DiContext.Provider value={containerRef.current}>{props.children}</DiContext.Provider>
+  return <DiContext.Provider value={containerRef.current}>{children}</DiContext.Provider>
 }
 
 export const useContainer = () => useContext(DiContext)
