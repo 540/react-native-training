@@ -1,4 +1,5 @@
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Pressable, ScrollView, StyleSheet, View } from 'react-native'
+import { Text } from 'ui/_components/Text'
 import { useNavigation } from 'ui/_navigation'
 
 interface Props {

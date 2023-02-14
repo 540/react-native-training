@@ -1,4 +1,5 @@
-import { Button, StyleSheet, Text, View } from 'react-native'
+import { Button, StyleSheet, View } from 'react-native'
+import { Text } from 'ui/_components/Text'
 import { useTranslation } from 'react-i18next'
 import { Layout } from 'ui/_components/Layout'
 import { useNavigation, useRoute } from 'ui/_navigation'

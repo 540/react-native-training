@@ -1,4 +1,5 @@
-import { StyleSheet, Text } from 'react-native'
+import { StyleSheet } from 'react-native'
+import { Text } from 'ui/_components/Text'
 import { useTranslation } from 'react-i18next'
 
 export const Intro = () => {

@@ -5,9 +5,12 @@ import { Footer } from './_components/Footer'
 import { Layout } from 'ui/_components/Layout'
 import { useState } from 'react'
 import { useQuery } from 'react-query'
-import { ActivityIndicator, StyleSheet, Text } from 'react-native'
+import { ActivityIndicator, StyleSheet } from 'react-native'
+import { Text } from 'ui/_components/Text'
+
 import { useContainer } from 'ui/_context/diContext'
 import Checkbox from 'expo-checkbox'
+import { useTheme } from 'ui/_context/themeContext'
 
 export const Home = () => {
   const [firstCharacterFilter, setFirstCharacterFilter] = useState<string | undefined>(undefined)
@@ -25,10 +28,12 @@ export const Home = () => {
     { initialData: [] }
   )
 
+  const { darkMode, toggleDarkMode } = useTheme()
+
   return (
     <Layout>
       <Text style={styles.checkboxLabel}>
-        Tema oscuro: <Checkbox value={false} onValueChange={() => {}} />
+        Tema oscuro: <Checkbox value={darkMode} onValueChange={toggleDarkMode} />
       </Text>
       <Intro />
       <Header
