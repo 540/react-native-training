@@ -5,8 +5,9 @@ import { Footer } from './_components/Footer'
 import { Layout } from 'ui/_components/Layout'
 import { useState } from 'react'
 import { useQuery } from 'react-query'
-import { ActivityIndicator, StyleSheet } from 'react-native'
+import { ActivityIndicator, StyleSheet, Text } from 'react-native'
 import { useContainer } from 'ui/_context/diContext'
+import Checkbox from 'expo-checkbox'
 
 export const Home = () => {
   const [firstCharacterFilter, setFirstCharacterFilter] = useState<string | undefined>(undefined)
@@ -26,6 +27,9 @@ export const Home = () => {
 
   return (
     <Layout>
+      <Text style={styles.checkboxLabel}>
+        Tema oscuro: <Checkbox value={false} onValueChange={() => {}} />
+      </Text>
       <Intro />
       <Header
         characters={characters}
@@ -48,5 +52,8 @@ export const Home = () => {
 const styles = StyleSheet.create({
   loader: {
     flex: 1
+  },
+  checkboxLabel: {
+    marginBottom: 20
   }
 })

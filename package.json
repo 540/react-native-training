@@ -19,6 +19,7 @@
     "awilix": "~8.0.0",
     "babel-plugin-module-resolver": "~5.0.0",
     "expo": "~47.0.12",
+    "expo-checkbox": "~2.2.2",
     "expo-localization": "~14.0.0",
     "expo-status-bar": "~1.4.2",
     "i18next": "~22.4.9",
