@@ -1,5 +1,5 @@
 import { Button, Platform, StyleSheet, Text, View } from 'react-native'
-import RNPickerSelect from 'react-native-picker-select'
+import { Picker } from '@react-native-picker/picker'
 import { useTranslation } from 'react-i18next'
 import { Character } from 'core/character/domain/character'
 
@@ -25,20 +25,24 @@ export const Header = ({
   return (
     <View style={styles.controlsContainer}>
       <Text style={styles.label}>{t('home.selector.title')}</Text>
-      <RNPickerSelect
-        placeholder={{ label: t('home.selector.placeholder') }}
-        style={{ viewContainer: styles.textInput }}
+      <Picker
+        placeholder={t('home.selector.placeholder')}
+        style={styles.textInput}
         onValueChange={onChangeFirstCharacter}
-        value={firstCharacterFilter ?? ''}
-        items={characters.map(character => ({ label: character.name, value: character.id }))}
-      />
-      <RNPickerSelect
-        placeholder={{ label: t('home.selector.placeholder') }}
-        style={{ viewContainer: styles.textInput }}
+        selectedValue={firstCharacterFilter ?? ''}>
+        {characters.map(character => (
+          <Picker.Item key={character.id} label={character.name} value={character.id} />
+        ))}
+      </Picker>
+      <Picker
+        placeholder={t('home.selector.placeholder')}
+        style={styles.textInput}
         onValueChange={onChangeSecondCharacter}
-        value={secondCharacterFilter ?? ''}
-        items={characters.map(character => ({ label: character.name, value: character.id }))}
-      />
+        selectedValue={secondCharacterFilter ?? ''}>
+        {characters.map(character => (
+          <Picker.Item key={character.id} label={character.name} value={character.id} />
+        ))}
+      </Picker>
       <Button title={t('home.button.reset')} onPress={onClear} />
     </View>
   )
