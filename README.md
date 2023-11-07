@@ -15,7 +15,7 @@ A partir de step 1, el proyecto plantea una base a partir de `create-expo-app` e
 A continuación un listado de lo tratado en cada step/rama:
 
 - [step0](https://github.com/540/react-native-training/tree/step0): Directamente la base que ofrece `create-expo-app`.
-- [step1](https://github.com/540/react-native-training/tree/step1): Ejercicio para prácticar con la gestión de estados (*useEffect*). Con su solución en [step1-solved](https://github.com/540/react-native-training/tree/step1-solved)
+- [step1](https://github.com/540/react-native-training/tree/step1): Ejercicio para prácticar con la gestión de estados (*useState*). Con su solución en [step1-solved](https://github.com/540/react-native-training/tree/step1-solved)
 - [step2](https://github.com/540/react-native-training/tree/step1): Ejercicio para prácticar con la asincronía (*useEffect*). Con su solución en [step2-solved](https://github.com/540/react-native-training/tree/step2-solved)
 - [step2-usequery](https://github.com/540/react-native-training/tree/step2-usequery): Resolución del ejercicio de asincronía usando `usequery` para gestionar la asincronía.
 - [step3](https://github.com/540/react-native-training/tree/step3): Ejercicio para integrar la navegación (`react-navigation`) en el proyecto. Con su solución en [step3-solved](https://github.com/540/react-native-training/tree/step3-solved)
